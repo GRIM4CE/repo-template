@@ -26,6 +26,11 @@
 - Don't add speculative abstractions, error handling, or backwards-compat shims for scenarios that can't happen.
 - Match the existing patterns in the file you're editing.
 
+### Code structure
+- Stay DRY, but follow the rule of three: don't abstract on the first duplicate. Wrong abstractions are costlier than repetition.
+- Keep new files focused on one responsibility. If a file you're already editing has drifted into multiple concerns, flag it rather than splitting it mid-task.
+- Build UI with a design-system mindset: presentational components stay dumb (props in, markup out), and business logic lives in hooks, services, or containers. Apply the same rule-of-three trigger for extracting shared components — consolidate once a pattern repeats, not before.
+
 ### Scope discipline
 - Do only what was asked. No drive-by refactors, no new features, no "while I'm here" cleanup.
 - If you notice something worth fixing, mention it — don't silently change it.
