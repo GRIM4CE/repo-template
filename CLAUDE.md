@@ -9,6 +9,7 @@
 - Create PRs as **ready for review**, not as draft.
 - Keep PR titles under 70 characters; put detail in the body.
 - Include a short "Summary" and "Test plan" section.
+- Keep PRs small and focused on a single concern. If a change is growing large, split it into a stack of smaller, independently reviewable PRs.
 
 ### Commits
 - Write concise commit messages focused on *why*, not *what*.
@@ -34,6 +35,11 @@
 ### Scope discipline
 - Do only what was asked. No drive-by refactors, no new features, no "while I'm here" cleanup.
 - If you notice something worth fixing, mention it — don't silently change it.
+
+### Dependencies
+- Prefer LTS or current stable releases for languages and runtimes; only move off LTS when a specific feature or fix requires it, and note why in the PR.
+- Pin or constrain versions in line with the ecosystem's conventions (lockfiles, version ranges).
+- Dependabot is enabled by default (see `.github/dependabot.yml`); keep minor/patch updates grouped to limit PR noise.
 
 ### Safety
 - Never commit secrets, API keys, or credentials.
