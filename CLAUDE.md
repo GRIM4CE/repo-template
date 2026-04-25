@@ -3,6 +3,16 @@
 ## About this project
 <!-- One or two sentences: what this repo is, primary language/framework, how to run it. -->
 
+## Nested CLAUDE.md files
+Add additional `CLAUDE.md` files in subdirectories when they contain domain-specific logic, unique conventions, or distinct tooling. This is especially useful in mono-repos, but applies anywhere a directory has context that doesn't belong in the root file.
+
+Examples:
+- `packages/api/CLAUDE.md` — API-specific patterns, endpoint conventions, auth handling
+- `packages/web/CLAUDE.md` — frontend component patterns, state management, styling approach
+- `scripts/CLAUDE.md` — scripting conventions, which scripts are safe to run
+
+Keep nested files focused; they supplement the root file, not replace it. Root file owns cross-cutting concerns (git, PRs, safety, general style). Nested files own domain-specific patterns, local commands, and package-specific gotchas.
+
 ## Working preferences
 
 ### Pull requests
@@ -20,6 +30,25 @@
 ### Git
 - Don't force push.
 - Don't modify git config or hooks.
+
+### Branches
+**Prefixes:**
+- `feat/` — new feature
+- `fix/` — bug fix
+- `refactor/` — code restructuring without behavior change
+- `docs/` — documentation only
+- `chore/` — maintenance, deps, configs
+- `test/` — adding or updating tests
+- `style/` — formatting, no logic change
+- `perf/` — performance improvements
+- `wip/` — work in progress (use sparingly)
+- `experiment/` — exploratory branches you might throw away
+
+**Formatting rules:**
+- Lowercase only
+- Use hyphens for spaces (`audio-synthesis`, not `audio_synthesis` or `audioSynthesis`)
+- Keep it short but descriptive (3–5 words max)
+- No special characters except `/` and `-`
 
 ### Code style
 - Prefer editing existing files over creating new ones.
@@ -40,6 +69,19 @@
 - Prefer LTS or current stable releases for languages and runtimes; only move off LTS when a specific feature or fix requires it, and note why in the PR.
 - Pin or constrain versions in line with the ecosystem's conventions (lockfiles, version ranges).
 - Dependabot is enabled by default (see `.github/dependabot.yml`); keep minor/patch updates grouped to limit PR noise.
+
+### Testing
+- Add tests for new functionality; bug fixes should include a regression test.
+- Prefer integration tests for user-facing flows, unit tests for pure logic.
+- Tests should be deterministic—no flaky tests, no reliance on external services without mocking.
+
+### File and folder structure
+<!-- Define where new files should go: components, services, utils, tests, etc. -->
+
+### Naming conventions
+- Follow the established conventions for the stack (e.g., camelCase for JS/TS, snake_case for Python/Ruby).
+- Be consistent with what already exists in the codebase.
+- Use descriptive names; avoid abbreviations unless they're ubiquitous (e.g., `id`, `url`).
 
 ### Safety
 - Never commit secrets, API keys, or credentials.
