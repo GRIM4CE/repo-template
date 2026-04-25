@@ -16,10 +16,7 @@ Keep nested files focused; they supplement the root file, not replace it. Root f
 ## Working preferences
 
 ### Pull requests
-- Create PRs as **ready for review**, not as draft.
-- Keep PR titles under 70 characters; put detail in the body.
-- Include a short "Summary" and "Test plan" section.
-- Keep PRs small and focused on a single concern. If a change is growing large, split it into a stack of smaller, independently reviewable PRs.
+- Conventions for titles, body format, and PR sizing live in the `pr-writer` agent (`.claude/agents/pr-writer.md`). Use that agent when drafting a PR.
 
 ### Commits
 - Write concise commit messages focused on *why*, not *what*.
