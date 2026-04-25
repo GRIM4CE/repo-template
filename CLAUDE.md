@@ -17,6 +17,8 @@ Keep nested files focused; they supplement the root file, not replace it. Root f
 
 ### Pull requests
 - Conventions for titles, body format, and PR sizing live in the `pr-writer` agent (`.claude/agents/pr-writer.md`). Use that agent when drafting a PR.
+- Always invoke the `pr-writer` agent to draft *and* open PRs. Don't call `gh pr create` or the GitHub MCP `create_pull_request` tool directly.
+- Open PRs ready for review, not as drafts.
 
 ### Commits
 - Write concise commit messages focused on *why*, not *what*.
